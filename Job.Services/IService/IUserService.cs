@@ -1,4 +1,6 @@
-﻿using Job.Data.Models.Domain;
+﻿using Job.Data;
+using Job.Data.Models.Domain;
+using Job.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,14 @@ namespace Job.Services.IService
 {
     public interface IUserService
     {
-        //User GetUser(string userId);
+        IList<Employer> GetJobs();
+        IList<AppliedJobsList> GetAppliedJobs(string UserId);
+        IList<ListOfApplicantsDto> GetListOfApplicants();
+        App_User GetLoggedInUserData(string IdentityId);
+        void EditProfile(EditProfileDto editProfileDto, string userId);
+        string GetResumePath(string identityId);
+        IList<AppliedJobsList> GetUserAppliedJobs(string UserId);
+        IList<SavedJobList> GetUserSavedJobs(string UserId);
+        IList<AppliedJobsList> SearchByJobTitle(string text, string userId);
     }
 }

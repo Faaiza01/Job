@@ -11,7 +11,6 @@ namespace JobWebApi.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Login Page";
-
             return View();
         }
     }

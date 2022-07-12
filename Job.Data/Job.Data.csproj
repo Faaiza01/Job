@@ -66,30 +66,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppliedJobsList.cs" />
-    <Compile Include="DAO\ArtistDAO.cs" />
-    <Compile Include="DAO\GenreDAO.cs" />
-    <Compile Include="DAO\MusicDAO.cs" />
-    <Compile Include="DAO\OrderDAO.cs" />
-    <Compile Include="DAO\OrderLineDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DAO\JobDAO.cs" />
     <Compile Include="EditProfileDto.cs" />
-    <Compile Include="IDAO\IArtistDAO.cs" />
-    <Compile Include="IDAO\IGenreDAO.cs" />
-    <Compile Include="IDAO\IMusicDAO.cs" />
-    <Compile Include="IDAO\IOrderDAO.cs" />
-    <Compile Include="IDAO\IOrderLineDAO.cs" />
     <Compile Include="IDAO\IUserDAO.cs" />
+    <Compile Include="IDAO\IJobDAO.cs" />
     <Compile Include="ListOfApplicantsDto.cs" />
     <Compile Include="Models\Domain\AppliedJobs.cs" />
     <Compile Include="Models\Domain\App_User.cs" />
-    <Compile Include="Models\Domain\Artist.cs" />
     <Compile Include="Models\Domain\Employer.cs" />
-    <Compile Include="Models\Domain\Genre.cs" />
-    <Compile Include="Models\Domain\Music.cs" />
-    <Compile Include="Models\Domain\Order.cs" />
-    <Compile Include="Models\Domain\OrderLine.cs" />
     <Compile Include="Models\Domain\SavedJobs.cs" />
-    <Compile Include="Models\Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\JobContext.cs" />
     <Compile Include="Repository\JobInitialiser.cs" />

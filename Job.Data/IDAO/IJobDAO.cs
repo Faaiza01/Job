@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Job.Data.IDAO
 {
-    public interface IMusicDAO
+    public interface IJobDAO
     {
         Employer GetJob(JobContext context, int id);
         void AddJob(JobContext context, Employer employer);
@@ -20,7 +20,5 @@ namespace Job.Data.IDAO
         IList<App_User> GetUsers(JobContext context);
         void RemoveUser(JobContext context, string identityId);
         App_User GetUserData(JobContext context, string id);
-        //void DeleteMusic(JobContext context, Music music);
-        //void AddToCollection(JobContext context, OrderLine orderLine, int musicId);
     }
 }

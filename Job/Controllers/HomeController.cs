@@ -13,46 +13,31 @@ namespace Job.Controllers
 {
     public class HomeController : Controller
     {
-        private IMusicService musicService;
+        private IJobService JobService;
 
         public HomeController()
         {
-            //helper = new Helper();
-            //genreService = new GenreService(); Will use from JobController
-            //artistService = new ArtistService();
-
-            musicService = new MusicService();
+            JobService = new JobService();
         }
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
-            App_User app_User = musicService.GetUserData(userId);
+            App_User app_User = JobService.GetUserData(userId);
             Session["Data"] = app_User;
             if (userId != null)
             {
                 return View();
             }
-
             return RedirectToAction("Index", "Login");
-            ;
         }
 
-        public ActionResult DownloadTerms()
-        {
-            return File("~/Content/Documents/_BusinessTerms.pdf", "application/pdf", "_BusinessTerms");
-        }
-
-        // POST: MusicAdmin/Create
+        // POST: PostJob/Create
         [HttpPost]
         public ActionResult PostJob(PostJobDto postJobDto)
         {
             try
             {
-                //// 'mo' is the UserId of a User in User table
-                musicService.AddJob(postJobDto, "mo");
-
-                //// Redirect to somewhere sensible
-                //return RedirectToAction("GetGenre", "Genre", new { id = musicGenreArtist.Genre });
+                JobService.AddJob(postJobDto, "mo");
                 return RedirectToAction("Index");
             }
             catch(Exception ex)
@@ -60,19 +45,6 @@ namespace Job.Controllers
                 var test = ex.Message;
                 return View();
             }
-        }
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }

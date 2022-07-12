@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Job.Services.IService
 {
-    public interface IMusicService
+    public interface IJobService
     {
         Employer GetJob(int id);
         void AddJob(PostJobDto postJobDto, string userId);
@@ -21,6 +21,5 @@ namespace Job.Services.IService
         IList<App_User> GetUsers();
         void RemoveUser(string id);
         App_User GetUserData(string id);
-        //void DeleteMusic(int id);
     }
 }

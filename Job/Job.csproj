@@ -170,20 +170,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
-    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\JobController.cs" />
-    <Compile Include="Controllers\GenreController.cs" />
-    <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobDashboard.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\EmployerController.cs" />
-    <Compile Include="Controllers\MusicController.cs" />
     <Compile Include="Controllers\PostJobController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -264,24 +258,10 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Genre\GetGenres.cshtml" />
-    <Content Include="Views\Genre\GetGenre.cshtml" />
-    <Content Include="Views\Genre\GetMusics.cshtml" />
-    <Content Include="Views\Music\GetMusic.cshtml" />
-    <Content Include="Views\MusicAdmin\AddMusic.cshtml" />
     <Content Include="Views\Employer\DeleteJob.cshtml" />
     <Content Include="Views\Employer\EditMusic.cshtml" />
-    <Content Include="Views\Service\GetMusicTypes.cshtml" />
-    <Content Include="Views\Cart\CheckOut.cshtml" />
-    <Content Include="Views\Cart\DisplayCart.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Employer\Index.cshtml" />
     <Content Include="Views\Employer\EditJob.cshtml" />
@@ -294,7 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Forest\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

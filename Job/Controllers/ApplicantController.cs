@@ -11,16 +11,13 @@ namespace Job.Controllers
         // GET: Applicant
         public ActionResult Index()
         {
-            ViewBag.applicants = genreService.GetListOfApplicants();
+            ViewBag.applicants = UserService.GetListOfApplicants();
             return View(ViewBag.applicants);    
         }
 
         public ActionResult PdfDownload(string userId)
         {
-            //string TempFilePath = @"C:\Program Files\wkhtmltopdf\bin\myPDF.pdf";
-
-            string TempFilePath = genreService.GetResumePath(userId);
-
+            string TempFilePath = UserService.GetResumePath(userId);
             if (System.IO.File.Exists(TempFilePath))
             {
                 var cd = new System.Net.Mime.ContentDisposition

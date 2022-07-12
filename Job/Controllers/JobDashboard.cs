@@ -15,11 +15,9 @@ namespace JobWebApi.Controllers
         {
             ViewBag.Title = "Job Dashbaord";
             var userId = User.Identity.GetUserId();
-            //ViewBag.myJobs = genreService.GetUserAppliedJobs(userId);
-            //ViewBag.savedJobs = genreService.GetUserSavedJobs(userId);
             dynamic mymodel = new ExpandoObject();
-            mymodel.AppliedJobs = genreService.GetUserAppliedJobs(userId);
-            mymodel.SavedJobs = genreService.GetUserSavedJobs(userId);
+            mymodel.AppliedJobs = UserService.GetUserAppliedJobs(userId);
+            mymodel.SavedJobs = UserService.GetUserSavedJobs(userId);
             return View(mymodel);
         }
     }

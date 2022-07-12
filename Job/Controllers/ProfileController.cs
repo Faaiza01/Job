@@ -16,7 +16,7 @@ namespace JobWebApi.Controllers
         {
             ViewBag.Title = "Profile";
             var userId = User.Identity.GetUserId();
-            ViewBag.userData = genreService.GetLoggedInUserData(userId);
+            ViewBag.userData = UserService.GetLoggedInUserData(userId);
             if (ViewBag.userData == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -29,7 +29,6 @@ namespace JobWebApi.Controllers
         {
             try
             {
-
                 if (file.ContentLength > 0)
                 {
                     string _FileName = Path.GetFileName(file.FileName);
@@ -38,17 +37,9 @@ namespace JobWebApi.Controllers
                     System.Diagnostics.Debug.WriteLine(_path);
                       editProfileDto.Resume=_path;
                 }
-              
-      
-                  
-                // 'mo' is the UserId of a User in User table
-                // Adding new music object
                 var userId = User.Identity.GetUserId();
-                genreService.EditProfile(editProfileDto, userId);
-
-                // Redirect to somewhere sensible
+                UserService.EditProfile(editProfileDto, userId);
                 return RedirectToAction("Index", "Home");
-                //return RedirectToAction("Index");
             }
             catch
             {

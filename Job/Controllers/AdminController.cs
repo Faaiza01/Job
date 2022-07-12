@@ -16,11 +16,11 @@ namespace JobWebApi.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private IMusicService musicService;
+        private IJobService JobService;
 
         public AdminController()
         {
-            musicService = new MusicService();
+            JobService = new JobService();
         }
 
         public AdminController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -54,9 +54,7 @@ namespace JobWebApi.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Admin";
-            ViewBag.users = musicService.GetUsers();
-
-
+            ViewBag.users = JobService.GetUsers();
             return View(ViewBag.users);
         }
 
@@ -68,8 +66,7 @@ namespace JobWebApi.Controllers
                 return View("Error");
             }
             var result = await UserManager.DeleteAsync(user);
-            musicService.RemoveUser(id);
-
+            JobService.RemoveUser(id);
             return RedirectToAction("Index", "Admin");
         }
     }

@@ -11,19 +11,12 @@ namespace Job.Controllers
 {
     public abstract class JobController : Controller
     {
-       public IGenreService genreService;
+       public IUserService UserService;
 
         protected JobController()
         {
-            genreService = new GenreService();
-            ViewBag.genres = genreService.GetGenres();
-          
+            UserService = new UserService();
+            ViewBag.genres = UserService.GetJobs();        
         }
-
-        // GET: Job
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
     }
 }

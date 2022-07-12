@@ -15,25 +15,19 @@ namespace JobWebApi.Controllers
 {
     public class SearchController : JobController
     {
-        private IMusicService musicService;
-        public IGenreService genreService;
+        private IJobService JobService;
+        public IUserService UserService;
 
         public SearchController()
         {
-            //helper = new Helper();
-            //genreService = new GenreService(); Will use from JobController
-            //artistService = new ArtistService();
-            musicService = new MusicService();
-            genreService = new GenreService();
-            //string UserId = User.Identity.GetUserId();
+            JobService = new JobService();
+            UserService = new UserService();
         }
         public ActionResult Index()
         {
             ViewBag.Title = "Search";
-            var userId = User.Identity.GetUserId();
-      
-            ViewBag.jobs = genreService.GetAppliedJobs(userId);
-          
+            var userId = User.Identity.GetUserId();     
+            ViewBag.jobs = UserService.GetAppliedJobs(userId);          
             return View(ViewBag.jobs);
         }
 
@@ -48,7 +42,7 @@ namespace JobWebApi.Controllers
                 AppliedJobDate = DateTime.Now,
             };
 
-            musicService.ApplyJob(appliedJobs);
+            JobService.ApplyJob(appliedJobs);
             return RedirectToAction("Index", "Search"); ;
         }
 
@@ -61,18 +55,15 @@ namespace JobWebApi.Controllers
                 JobId = id,
                 UserIdentityId = userId,
             };
-            musicService.SaveJob(appliedJobs);
+            JobService.SaveJob(appliedJobs);
             return RedirectToAction("Index", "Search"); ;
         }
 
         [HttpPost]
         public ActionResult Index(string JobTitle)
         {
-            var userId = User.Identity.GetUserId();
-           
-            ViewBag.jobs= genreService.SearchByJobTitle(JobTitle, userId);
-          
-            
+            var userId = User.Identity.GetUserId();           
+            ViewBag.jobs= UserService.SearchByJobTitle(JobTitle, userId);                    
             return View(ViewBag.jobs);
           
         }

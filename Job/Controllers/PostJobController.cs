@@ -11,41 +11,28 @@ namespace Job.Controllers
 {
     public class PostJobController : Controller
     {
-        private IMusicService musicService;
+        private IJobService JobService;
 
         public PostJobController()
         {
-            //helper = new Helper();
-            //genreService = new GenreService(); Will use from JobController
-            //artistService = new ArtistService();
-            musicService = new MusicService();
+            JobService = new JobService();
         }
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult DownloadTerms()
-        {
-            return File("~/Content/Documents/_BusinessTerms.pdf", "application/pdf", "_BusinessTerms");
-        }
-
-        // POST: MusicAdmin/Create
+        // POST: PostJob/Create
         [HttpPost]
         public ActionResult PostJob(PostJobDto postJobDto)
         {
             try
             {
-                //// 'mo' is the UserId of a User in User table
-                musicService.AddJob(postJobDto, "mo");
-
-                //// Redirect to somewhere sensible
-                //return RedirectToAction("GetGenre", "Genre", new { id = musicGenreArtist.Genre });
+                JobService.AddJob(postJobDto, "mo");
                 return RedirectToAction("Index");
             }
             catch(Exception ex)
             {
-                var test = ex.Message;
                 return View();
             }
         }

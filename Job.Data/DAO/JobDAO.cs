@@ -10,14 +10,8 @@ using System.Data.Entity;
 
 namespace Job.Data.DAO
 {
-    public class MusicDAO : IMusicDAO
+    public class JobDAO : IJobDAO
     {
-        //private JobContext context;
-
-        //public MusicDAO()
-        //{
-        //    //context = new JobContext();
-        //}
 
         public Employer GetJob(JobContext context, int id)
         {
@@ -62,7 +56,6 @@ namespace Job.Data.DAO
             context.SaveChanges();
         }
 
-
         public void EditJob(JobContext context, Employer employer, int jobId)
         {
             context.Employers.Find(jobId).JobTitle = employer.JobTitle;
@@ -81,11 +74,6 @@ namespace Job.Data.DAO
             context.Employers.Remove(context.Employers.Find(id));
             context.SaveChanges();
         }
-
-        //public void AddToCollection(JobContext context, OrderLine orderLine, int musicId)
-        //{
-        //    context.Musics.Find(musicId).OrderLines.Add(orderLine);
-        //}
     }
 
 }
