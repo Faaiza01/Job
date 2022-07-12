@@ -1,0 +1,66 @@
+﻿@model Forest.Data.Models.Domain.Music
+
+@{
+    ViewBag.Title = "GetMusic";
+    ViewBag.NewID = ViewBag.GenreID;
+}
+<h2>GetMusic</h2>
+
+<div>
+    <h4>Music</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_track)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_track)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateReleased)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateReleased)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "GetGenre", new { id = ViewBag.NewID, Controller = "Genre" })
+</p>

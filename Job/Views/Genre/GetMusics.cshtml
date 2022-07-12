@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Job.Data.Models.Domain.Music>
+
+@{
+    ViewBag.Title = "GetMusics";
+}
+
+<h2>GetMusics</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    @Html.ActionLink("Add Music", "AddMusic", "MusicAdmin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.num_track)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReleased)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_track)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReleased)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Image)*@
+            @{ string imagePath = "/Content/Images/Music/" + item.Image;} @*Creating image path*@
+            <img src="@imagePath" alt="No Image" width="30" height="30" /> @*Passing the image path to show image*@
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "EditMusic", new { id = item.ID, Controller = "MusicAdmin" }) |*@
+
+            <a href="@Url.Action("EditMusic", new { id = item.ID, Controller = "MusicAdmin" })">
+                <img src="~/Content/Images/Actions/edit.jpg" alt="Delete" width="30" height="30" />
+            </a>
+
+
+            @*@Html.ActionLink("Details", "GetMusic", new { id = item.ID, Controller = "Music" }) |*@
+
+            <a href=" @Url.Action("GetMusic", new { id = item.ID, Controller = "Music" })">
+                <img src="~/Content/Images/Actions/details.jpg" alt="Delete" width="30" height="30" />
+            </a>
+
+
+            @*@Html.ActionLink("Delete", "DeleteMusic", new { id = item.ID, Controller = "MusicAdmin" })*@
+
+            <a href=" @Url.Action("DeleteMusic", new { id = item.ID, Controller = "MusicAdmin" }) ">
+                <img src="~/Content/Images/Actions/remove.jpg" alt="Delete" width="30" height="30" />
+            </a>
+
+            <a href=" @Url.Action("AddToCart", new { id = item.ID, Controller = "Cart" }) ">
+                <img src="~/Content/Images/Actions/add.jpg" alt="Delete" width="30" height="30" />
+            </a>
+        </td>
+    </tr>
+}
+
+</table>
