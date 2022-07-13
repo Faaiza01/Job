@@ -19,7 +19,7 @@ namespace Job.Controllers
             JobService = new JobService();
         }
 
-        // GET: MusicAdmin
+        // GET: Get Jobs
         public ActionResult Index()
         {
             ViewBag.applicants = UserService.GetListOfApplicants();
